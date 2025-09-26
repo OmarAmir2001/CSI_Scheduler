@@ -1,0 +1,155 @@
+1. HARD CONSTRAINTS (Must Be Satisfied)
+1.1 Room Capacity Constraints
+Basic Capacity: Room capacity must be sufficient for the number of students in a subject
+
+Automatic Splitting: If no single room can accommodate all students, the subject is automatically split into multiple groups
+
+Group Size Calculation: Groups are divided equally based on maximum room capacity available
+
+1.2 No Room Double-Booking
+A room cannot be scheduled for more than one subject at the same time
+
+Applies to all rooms across all time slots
+
+Essential for physical space management
+
+1.3 No Professor Double-Booking
+A professor cannot teach multiple subjects simultaneously
+
+Professor availability is tracked across all their assigned subjects
+
+Prevents scheduling conflicts for teaching staff
+
+1.4 Professor Day Off Compliance
+Professors cannot be scheduled on their designated day off
+
+Day off preferences are specified per professor
+
+Case-insensitive matching (e.g., "thu", "Thu", "THU" all work)
+
+2. SOFT CONSTRAINTS (Preferences/Optimizations)
+2.1 Room Type Matching
+Subjects should be scheduled in rooms matching their required type (lab/lecture_hall)
+
+Treated as a preference rather than absolute requirement
+
+Fallback scheduler may relax this constraint if needed
+
+2.2 Professor Time Preferences
+Morning Preference: Classes scheduled before 12:00 PM
+
+Afternoon Preference: Classes scheduled after 12:00 PM
+
+Before 11:00: Classes scheduled before 11:00 AM
+
+After 11:00: Classes scheduled after 11:00 AM
+
+No Preference: Any time slot acceptable
+
+2.3 Split Subject Group Coordination
+Same Day Requirement: All groups of a split subject must be scheduled on the same day
+
+Consecutive Time Slots: Groups should be scheduled in consecutive time slots when possible
+
+Room Consistency: Prefer same room for all groups of a split subject
+
+3. AUTOMATIC FEATURES/CONSTRAINTS
+3.1 Subject Splitting Logic
+Trigger Condition: Subject student count > maximum room capacity
+
+Group Calculation: ceil(total_students / max_room_capacity) groups
+
+Student Distribution: Students divided as equally as possible among groups
+
+Group Naming: Original subject ID + group number (e.g., "CS101_G1", "CS101_G2")
+
+3.2 Time Slot Management
+Standard Duration: 1.5 hours per lecture/lab
+
+Daily Schedule: 9:00 AM - 3:00 PM (4 time slots per day)
+
+Days Available: Sunday through Thursday (5 days)
+
+Total Slots: 20 available time slots weekly
+
+3.3 Capacity Flexibility
+Main Scheduler: Requires 80% room capacity minimum
+
+Fallback Scheduler: Requires only 50% room capacity
+
+Emergency Fallback: Can use any room regardless of capacity if needed
+
+4. VALIDATION CONSTRAINTS
+4.1 Input Validation
+Case Normalization: All inputs normalized for consistent processing
+
+Professor Names: Converted to proper title case
+
+Subject/Room IDs: Converted to uppercase
+
+Room Types: Converted to lowercase
+
+4.2 Schedule Validation
+Day Off Compliance Check: Verify no professors scheduled on their off days
+
+Time Preference Verification: Confirm professor time preferences are respected
+
+Split Group Validation: Ensure split subject constraints are maintained
+
+Resource Utilization: Monitor room and time slot usage efficiency
+
+5. FALLBACK MECHANISM CONSTRAINTS
+5.1 Multi-Attempt Scheduling
+Attempt 1: Apply all constraints strictly
+
+Attempt 2-3: Gradually relax soft constraints
+
+Progressive Relaxation: Room type → Capacity requirements → Time preferences
+
+5.2 Constraint Priority Hierarchy
+Level 1 (Critical): No double-booking (room/professor)
+
+Level 2 (Important): Room capacity, Day off compliance
+
+Level 3 (Preferred): Room type matching, Time preferences
+
+Level 4 (Optimization): Split subject coordination, Consecutive scheduling
+
+6. DATA INTEGRITY CONSTRAINTS
+6.1 Input Data Requirements
+Subject Data: ID, name, student count, professor, room type, day off, time preference
+
+Room Data: ID, capacity, room type
+
+Professor Data: Name, day off preference, time preference
+
+6.2 Business Logic Constraints
+Minimum Resources: At least one room must be available
+
+Time Slot Availability: Sufficient time slots for all subjects/groups
+
+Professor Workload: No inherent limit, but double-booking prevented
+
+7. SPECIAL CASES HANDLED
+7.1 Large Class Management
+Automatic group splitting with coordinated scheduling
+
+Same-day requirement for all groups
+
+Consecutive time slot preference
+
+7.2 Constraint Conflict Resolution
+Priority-based constraint relaxation
+
+Detailed error reporting when no solution found
+
+Specific suggestions for constraint modification
+
+7.3 Edge Cases
+Single subject with multiple professors (treated as separate constraints)
+
+Rooms with exactly matching capacity
+
+All professors having the same day off
+
+Time preferences that eliminate all available slots
