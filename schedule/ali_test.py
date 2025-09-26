@@ -616,7 +616,8 @@ def main():
         print("\nSuggested Solutions:")
         print("1. Add more rooms or increase room capacities")
         print("2. Reduce the number of constraints (day offs, time preferences)")
-        
+        print("3. Add more available days or time slots")
+        print("ali")
 
 if __name__ == "__main__":
     main()
