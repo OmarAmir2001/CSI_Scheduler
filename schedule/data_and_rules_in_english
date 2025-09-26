@@ -1,0 +1,29 @@
+Inputs
+
+-Days of attendance of professors
+-Order of professors according to priority and their working hours (preferences)
+-Days of free time for teaching assistants
+-Order of teaching assistants
+-Names of the courses chosen
+-Number of students in each course
+-Available halls each day + labs
+-Names of professors and teaching assistants
+-Capacity of halls
+-Division of courses by class using the code
+-Number of sections in each course
+
+
+----------------------------------------------------------------------------------
+
+Rules:
+
+-A professor or teaching assistant cannot have a lecture or a section at the same time.
+-Avoid conflicts within the same class <in lectures only> (meaning two courses cannot be held at the same time within the same class).
+-A hall or lab cannot be registered for two courses at the same time.
+-The lecture will be held in one hall, and the section will be held in the lab.
+-We will determine whether the course will be a single lecture or whether the course will be split into two groups, in which case it will be two consecutive lectures (two consecutive periods in the same hall).
+-Divide the number of students by the number of sections per group.
+-The duration of the lecture or section is one and a half hours.
+-The day has four periods, from 9 a.m. to 3 p.m., each period is one and a half hours.
+-The week is from Sunday to Thursday.
+-If a professor wants to register a course, for example, two groups on Sunday, from 9 a.m. to 10:30 a.m., and the second group from 10:30 a.m. to 12:00 p.m. in Room 12:20. Another professor wants to register his lecture from 9 a.m. on Sunday. The algorithm must hide Room 12:20 and show the remaining available rooms for the number of courses to be registered. If the available rooms do not have enough capacity, the number can be placed in other available periods on the same day or another day.
