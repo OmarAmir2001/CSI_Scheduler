@@ -1,0 +1,146 @@
+rooms capacity:
+
+1220: 350
+3214 :350
+3102 :120
+3101 :70
+3211: 80
+
+
+============================================================
+INPUT SUMMARY:
+============================================================
+Subjects: 3
+  - CS402: Security by Marwa | Day off: Mon | Time preference: after_11
+  - CS401: Artificial Intelligence by Ahmed | Day off: Thu | Time preference: after_11
+  - CS403: Machine Learning by Sheriff | Day off: Tue | Time preference: morning
+
+Rooms: 3
+  - 1220: 350 seats (lecture_hall)
+  - 3214: 350 seats (lecture_hall)
+  - 3211: 80 seats (lecture_hall)
+
+DEBUG: Available Resources
+Time slots: 20
+Rooms: 3
+Subjects: 3
+DEBUG: CS402 - 8 time slots, 2 rooms
+DEBUG: CS401 - 8 time slots, 2 rooms
+DEBUG: CS403 - 8 time slots, 2 rooms
+
+Scheduling Information:
+  Time slots generated: 20
+  Available days: Mon, Sun, Thu, Tue, Wed
+
+============================================================
+ATTEMPTING TO GENERATE SCHEDULE...
+============================================================
+
+Attempt 1/3...
+
+DEBUG: Available Resources
+Time slots: 20
+Rooms: 3
+Subjects: 3
+DEBUG: CS402 - 8 time slots, 2 rooms
+DEBUG: CS401 - 8 time slots, 2 rooms
+DEBUG: CS403 - 8 time slots, 2 rooms
+✅ Solution found on attempt 1!
+
+================================================================================
+GENERATED SCHEDULE
+================================================================================
+
+MON:
+------------------------------------------------------------
+  9:00-10:30  | Room: 3214   | Dr. Sheriff     | Machine Learning
+
+WED:
+------------------------------------------------------------
+  12:00-13:30 | Room: 3214   | Dr. Ahmed       | Artificial Intelligence
+  13:30-15:00 | Room: 3214   | Dr. Marwa       | Security
+
+======================================================================
+VALIDATION REPORT:
+======================================================================
+✅ All day off constraints satisfied!
+✅ All time preference constraints satisfied!
+
+Schedule Statistics:
+  Total instructional hours: 4.5
+  Subjects scheduled: 3
+  Time slots utilized: 4/20
+  Room utilization: 133.3%
+
+
+
+
+
+
+--------------------------------------------------------------
+=== University Schedule Generator ===
+Improved Version with Better Constraint Handling
+============================================================
+=== University Schedule Generator - Data Input ===
+
+Step 1: Enter Subject Information
+-----------------------------------
+
+Subject #1:
+Subject ID (e.g., CS101):  CS403
+Subject Name:  Machine Learning
+Number of students:  500
+Professor name:  Sheriff
+Required room type (lab/lecture_hall):  lecture_hall
+Professor's day off (Sun/Mon/Tue/Wed/Thu or leave blank if none):  Thu
+
+Professor Time Preference Options:
+  1. Morning only (9:00-12:00)
+  2. Afternoon only (12:00-15:00)
+  3. No preference
+  4. Before 11:00
+  5. After 11:00
+Enter preference number (1-5):  4
+
+Add another subject? (y/n):  y
+
+Subject #2:
+Subject ID (e.g., CS101):  CS402
+Subject Name:  Security
+Number of students:  200
+Professor name:  Marwa
+Required room type (lab/lecture_hall):  lecture_hall
+Professor's day off (Sun/Mon/Tue/Wed/Thu or leave blank if none):  Mon
+
+Professor Time Preference Options:
+  1. Morning only (9:00-12:00)
+  2. Afternoon only (12:00-15:00)
+  3. No preference
+  4. Before 11:00
+  5. After 11:00
+Enter preference number (1-5):  1
+
+Add another subject? (y/n):  y
+
+Subject #3:
+Subject ID (e.g., CS101):  CS401
+Subject Name:  Artificial Intelligence
+Number of students:  400
+Professor name:  Ahmed Gaber
+Required room type (lab/lecture_hall):  lecture_hall
+Professor's day off (Sun/Mon/Tue/Wed/Thu or leave blank if none):  Wed
+
+Professor Time Preference Options:
+  1. Morning only (9:00-12:00)
+  2. Afternoon only (12:00-15:00)
+  3. No preference
+  4. Before 11:00
+  5. After 11:00
+Enter preference number (1-5):  4
+
+Add another subject? (y/n):  y
+
+Subject #4:
+Subject ID (e.g., CS101):  CS417
+Subject Name:  Pattern
+Number of students:  Ashraf
